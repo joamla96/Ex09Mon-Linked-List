@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LinkedList {
 	class MyList {
@@ -21,8 +18,14 @@ namespace LinkedList {
 
 		public object Search(int index) {
 			int Counter = 0;
+			if(this.Head == null) {
+				throw new ListEmptyException();
+			}
 			Node CurNode = this.Head;
 			while(CurNode != null && Counter < index) {
+				if(CurNode.Next == null) {
+					throw new ElementNotFoundException();
+				}
 				CurNode = CurNode.Next;
 				Counter++;
 			}
@@ -31,7 +34,15 @@ namespace LinkedList {
 		}
 
 		public override string ToString() {
-			throw new NotImplementedException();
+			StringWriter Out = new StringWriter();
+
+			Node CurNode = this.Head;
+			while(CurNode != null) {
+				Out.WriteLine(CurNode.Data.ToString());
+			}
+			
+			return Out.ToString();
 		}
 	}
+
 }

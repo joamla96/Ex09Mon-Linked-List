@@ -5,12 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LinkedList {
-	class Node {
-		public Node Next = null;
-		public object Data = null;
+	class ElementNotFoundException : Exception {
 
-		public Node(object obj) {
-			this.Data = obj;
-		}
+	}
+
+	class ListEmptyException : Exception {
+
 	}
 }
