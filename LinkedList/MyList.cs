@@ -12,25 +12,36 @@ namespace LinkedList {
 			this.Head = NewNode;
 		}
 
+		public void Insert(object obj, int index) {
+			Node NewNode = new Node(obj);
+
+
+		}
+
 		public void Delete() {
 			this.Head = this.Head.Next;
 		}
 
-		public object Search(int index) {
+		private Node SearchNode(int index) {
 			int Counter = 0;
-			if(this.Head == null) {
+			if (this.Head == null) {
 				throw new ListEmptyException();
 			}
 			Node CurNode = this.Head;
-			while(CurNode != null && Counter < index) {
-				if(CurNode.Next == null) {
+			while (CurNode != null && Counter < index) {
+				if (CurNode.Next == null) {
 					throw new ElementNotFoundException();
 				}
 				CurNode = CurNode.Next;
 				Counter++;
 			}
 
-			return CurNode.Data;
+			return CurNode;
+		}
+
+		public object Search(int index) {
+			Node SearchNode = this.SearchNode(index);
+			return SearchNode.Data;
 		}
 
 		public override string ToString() {
