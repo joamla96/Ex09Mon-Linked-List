@@ -41,7 +41,7 @@ namespace LinkedList {
 			Node CurNode = this.Head;
 			while (CurNode != null && Counter < index) {
 				if (CurNode.Next == null) {
-					throw new ElementNotFoundException();
+					throw new IndexOutOfRangeException();
 				}
 				CurNode = CurNode.Next;
 				Counter++;
