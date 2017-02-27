@@ -6,5 +6,22 @@ using System.Threading.Tasks;
 
 namespace LinkedList {
 	class MyList {
+		private Node Head { get; set; }
+
+		public void Insert(object obj) {
+			throw new NotImplementedException();
+		}
+
+		public void Delete() {
+			throw new NotImplementedException();
+		}
+
+		public object Search(int index) {
+			throw new NotImplementedException();
+		}
+
+		public override string ToString() {
+			throw new NotImplementedException();
+		}
 	}
 }
