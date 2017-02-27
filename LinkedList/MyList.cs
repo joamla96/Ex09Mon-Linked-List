@@ -15,11 +15,22 @@ namespace LinkedList {
 		public void Insert(object obj, int index) {
 			Node NewNode = new Node(obj);
 
+			Node Before = this.SearchNode(index - 1); 
+			Node After = this.SearchNode(index); // TODO: Improve Effiency, don't search from beginning
 
+			Before.Next = NewNode;
+			NewNode.Next = After;
 		}
 
 		public void Delete() {
 			this.Head = this.Head.Next;
+		}
+
+		public void Delete(int index) {
+			Node Before = this.SearchNode(index - 1);
+			Node After = this.SearchNode(index + 1); // TODO: Improve Effiency, don't search from beginning
+
+			Before.Next = After;
 		}
 
 		private Node SearchNode(int index) {
