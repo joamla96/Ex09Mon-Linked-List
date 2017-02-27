@@ -15,8 +15,8 @@ namespace LinkedList {
 		public void Insert(object obj, int index) {
 			Node NewNode = new Node(obj);
 
-			Node Before = this.SearchNode(index - 1); 
-			Node After = this.SearchNode(index); // TODO: Improve Effiency, don't search from beginning
+			Node Before = this.SearchNode(index - 1);
+			Node After = Before.Next;//this.SearchNode(index); // TODO: Improve Effiency, don't search from beginning
 
 			Before.Next = NewNode;
 			NewNode.Next = After;
@@ -28,7 +28,7 @@ namespace LinkedList {
 
 		public void Delete(int index) {
 			Node Before = this.SearchNode(index - 1);
-			Node After = this.SearchNode(index + 1); // TODO: Improve Effiency, don't search from beginning
+			Node After = Before.Next.Next; //this.SearchNode(index + 1); // TODO: Improve Effiency, don't search from beginning
 
 			Before.Next = After;
 		}
