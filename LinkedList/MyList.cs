@@ -9,7 +9,7 @@ namespace LinkedList {
 		private Node Head { get; set; }
 
 		public void Insert(object obj) {
-			throw new NotImplementedException();
+			
 		}
 
 		public void Delete() {
