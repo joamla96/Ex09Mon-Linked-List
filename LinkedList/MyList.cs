@@ -2,7 +2,7 @@
 using System.Text;
 
 namespace LinkedList {
-	class MyList {
+	public class MyList {
 		private Node Head { get; set; }
 
 		public void Insert(object obj) {
@@ -39,6 +39,7 @@ namespace LinkedList {
 			Node CurNode = this.Head;
 			while(CurNode != null) {
 				Out.WriteLine(CurNode.Data.ToString());
+				CurNode = CurNode.Next;
 			}
 			
 			return Out.ToString();
