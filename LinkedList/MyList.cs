@@ -9,15 +9,25 @@ namespace LinkedList {
 		private Node Head { get; set; }
 
 		public void Insert(object obj) {
-			
+			Node NewNode = new Node(obj);
+
+			NewNode.Next = this.Head;
+			this.Head = NewNode;
 		}
 
 		public void Delete() {
-			throw new NotImplementedException();
+			this.Head = this.Head.Next;
 		}
 
 		public object Search(int index) {
-			throw new NotImplementedException();
+			int Counter = 0;
+			Node CurNode = this.Head;
+			while(CurNode != null && Counter < index) {
+				CurNode = CurNode.Next;
+				Counter++;
+			}
+
+			return CurNode.Data;
 		}
 
 		public override string ToString() {

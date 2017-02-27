@@ -8,5 +8,9 @@ namespace LinkedList {
 	class Node {
 		public Node Next { get; set; }
 		public object Data { get; set; }
+
+		public Node(object obj) {
+			this.Data = obj;
+		}
 	}
 }
