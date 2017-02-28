@@ -67,7 +67,11 @@ namespace LinkedList {
 		}
 
 		public void Switch(Node A, Node B) { // KISS
+			IComparable X = A.Data; // If its stupid but works,
+			IComparable Y = B.Data; // is it really that stupid?
 
+			A.Data = Y;
+			B.Data = X;
 		}
 
 		public override string ToString() {
