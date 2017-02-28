@@ -12,11 +12,11 @@ namespace LinkedList {
 			this.Head = NewNode;
 		}
 
-		public void Insert(object obj, int index) {
+		public void Insert(object obj, int index) { // TODO: Protect against end of list; null reference
 			Node NewNode = new Node(obj);
 
 			Node Before = this.SearchNode(index - 1);
-			Node After = Before.Next;//this.SearchNode(index); // TODO: Improve Effiency, don't search from beginning
+			Node After = this.SearchNode(index); // TODO: Improve Effiency, don't search from beginning
 
 			Before.Next = NewNode;
 			NewNode.Next = After;
@@ -26,9 +26,9 @@ namespace LinkedList {
 			this.Head = this.Head.Next;
 		}
 
-		public void Delete(int index) {
+		public void Delete(int index) {  // TODO: Protect against end of list; null reference
 			Node Before = this.SearchNode(index - 1);
-			Node After = Before.Next.Next; //this.SearchNode(index + 1); // TODO: Improve Effiency, don't search from beginning
+			Node After = this.SearchNode(index + 1); // TODO: Improve Effiency, don't search from beginning
 
 			Before.Next = After;
 		}
