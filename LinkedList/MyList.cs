@@ -58,13 +58,22 @@ namespace LinkedList {
 		}
 
 		public void Sort() {
-			Node CurNode = this.Head;
-			while(CurNode != null) {
-				if(CurNode.Data.CompareTo(CurNode.Next.Data) < 0) {
-					this.Switch(CurNode, CurNode.Next);
-				}
+			Node CurNode;
+			bool Sorted = false;
+			bool Flag;
 
-				CurNode = CurNode.Next;
+			while (!Sorted) { 
+				Flag = false;
+				CurNode = this.Head;
+				while (CurNode != null && CurNode.Next != null) {
+					if (CurNode.Data.CompareTo(CurNode.Next.Data) < 0) {
+						this.Switch(CurNode, CurNode.Next);
+						Flag = true;
+					}
+					if (!Flag) Sorted = true;
+					CurNode = CurNode.Next;
+				}
+				Console.WriteLine(this.ToString()); // DEBUG ONLY!				
 			}
 		}
 
@@ -80,11 +89,11 @@ namespace LinkedList {
 			StringWriter Out = new StringWriter();
 
 			Node CurNode = this.Head;
-			while(CurNode != null) {
+			while (CurNode != null) {
 				Out.WriteLine(CurNode.Data.ToString());
 				CurNode = CurNode.Next;
 			}
-			
+
 			return Out.ToString();
 		}
 	}
