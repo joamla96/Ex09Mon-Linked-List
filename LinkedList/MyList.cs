@@ -63,6 +63,8 @@ namespace LinkedList {
 				if(CurNode.Data.CompareTo(CurNode.Next.Data) < 0) {
 					this.Switch(CurNode, CurNode.Next);
 				}
+
+				CurNode = CurNode.Next;
 			}
 		}
 
