@@ -4,6 +4,7 @@ using System.Text;
 namespace LinkedList {
 	public class MyList {
 		private Node Head { get; set; }
+		// Should be public with private set? Otherwise outsiders cant get to the list, but may be the point or?
 
 		public void Insert(object obj) {
 			Node NewNode = new Node(obj);
@@ -53,6 +54,7 @@ namespace LinkedList {
 		public object Search(int index) {
 			Node SearchNode = this.SearchNode(index);
 			return SearchNode.Data;
+			// Shorthand: return this.SearchNode(index).Data;
 		}
 
 		public override string ToString() {

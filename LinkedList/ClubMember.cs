@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 
 namespace LinkedList {
-	public class ClubMember {
+	public class ClubMember : IComparable {
 		public int Nr { get; set; }
 		public string Fname { get; set; }
 		public string Lname { get; set; }
@@ -20,6 +17,23 @@ namespace LinkedList {
 
 		public override string ToString() {
 			return this.Nr + " " + this.Fname + " " + this.Lname + " " + this.Age;
+		}
+
+		public int CompareTo(object y) {
+			int Result = 0;
+			ClubMember Other = (ClubMember)y;
+
+			Result = this.Nr.CompareTo(Other.Nr);
+
+			if(Result == 0) {
+				Result = this.Fname.CompareTo(Other.Fname);
+			}
+
+			if (Result == 0) {
+				Result = this.Age.CompareTo(Other.Age);
+			}
+
+			return Result;
 		}
 	}
 }
