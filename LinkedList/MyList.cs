@@ -13,7 +13,7 @@ namespace LinkedList {
 			this.Head = NewNode;
 		}
 
-		public void Insert(IComparable obj, int index) { // TODO: Protect against end of list; null reference
+		public void Insert(IComparable obj, int index) { // TODO: Protect against end of list; null reference, list empty, and index out of range exceptions
 			Node NewNode = new Node(obj);
 
 			Node Before = this.SearchNode(index - 1);
@@ -29,7 +29,7 @@ namespace LinkedList {
 			temp = null;
 		}
 
-		public void Delete(int index) {  // TODO: Protect against end of list; null reference
+		public void Delete(int index) {  // TODO: Protect against end of list; null reference, list empty, and index out of range exceptions
 			Node Before = this.SearchNode(index - 1);
 			Node After = this.SearchNode(index + 1); // TODO: Improve Effiency, don't search from beginning
 
