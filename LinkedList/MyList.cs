@@ -24,7 +24,9 @@ namespace LinkedList {
 		}
 
 		public void Delete() {
+			Node temp = Head;
 			this.Head = this.Head.Next;
+			temp = null;
 		}
 
 		public void Delete(int index) {  // TODO: Protect against end of list; null reference
@@ -77,7 +79,7 @@ namespace LinkedList {
 			}
 		}
 
-		public void Switch(Node A, Node B) { // KISS
+		private void Switch(Node A, Node B) { // KISS
 			IComparable X = A.Data; // If its stupid but works,
 			IComparable Y = B.Data; // is it really that stupid?
 
