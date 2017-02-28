@@ -39,7 +39,7 @@ namespace LinkedList {
 		private Node SearchNode(int index) {
 			int Counter = 0;
 			if (this.Head == null) {
-				throw new ListEmptyException();
+				throw new ListEmptyException(); // Custom Exception
 			}
 			Node CurNode = this.Head;
 			while (CurNode != null && Counter < index) {
