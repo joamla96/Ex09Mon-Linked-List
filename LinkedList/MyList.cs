@@ -1,19 +1,19 @@
 ﻿using System.IO;
-using System.Text;
+using System;
 
 namespace LinkedList {
 	public class MyList {
 		private Node Head { get; set; }
 		// Should be public with private set? Otherwise outsiders cant get to the list, but may be the point or?
 
-		public void Insert(object obj) {
+		public void Insert(IComparable obj) {
 			Node NewNode = new Node(obj);
 
 			NewNode.Next = this.Head;
 			this.Head = NewNode;
 		}
 
-		public void Insert(object obj, int index) { // TODO: Protect against end of list; null reference
+		public void Insert(IComparable obj, int index) { // TODO: Protect against end of list; null reference
 			Node NewNode = new Node(obj);
 
 			Node Before = this.SearchNode(index - 1);
@@ -55,6 +55,19 @@ namespace LinkedList {
 			Node SearchNode = this.SearchNode(index);
 			return SearchNode.Data;
 			// Shorthand: return this.SearchNode(index).Data;
+		}
+
+		public void Sort() {
+			Node CurNode = this.Head;
+			while(CurNode != null) {
+				if(CurNode.Data.CompareTo(CurNode.Next.Data) < 0) {
+					this.Switch(CurNode, CurNode.Next);
+				}
+			}
+		}
+
+		public void Switch(Node A, Node B) { // KISS
+
 		}
 
 		public override string ToString() {
